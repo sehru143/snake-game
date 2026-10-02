@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10091d">
+  <title>Neon Snake Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="snake.css">
+  <script src="snake.js" defer></script>
+</head>
+<body>
+  <main class="arcade">
+    <header class="page-heading">
+      <p class="eyebrow">MIDNIGHT ARCADE / 001</p>
+      <h1>NEON SNAKE</h1>
+    </header>
+
+    <section class="game-panel" aria-label="Snake arcade game">
+      <div class="top-line">
+        <div class="stats" aria-live="polite">
+          <div class="stat"><span class="stat-label">SCORE</span><span class="stat-value" id="score">00000</span></div>
+          <div class="stat"><span class="stat-label">BEST</span><span class="stat-value" id="best">00000</span></div>
+          <div class="stat"><span class="stat-label">COMBO</span><span class="stat-value combo-value" id="combo">x0</span></div>
+        </div>
+        <div class="header-buttons">
+          <button class="mute-button" id="pauseButton" type="button" aria-label="Pause game" title="Pause game" disabled>
+            <span id="pauseIcon" aria-hidden="true">Ⅱ</span>
+          </button>
+          <button class="mute-button" id="muteButton" type="button" aria-label="Mute sound" title="Mute sound">
+            <span id="muteIcon" aria-hidden="true">♫</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="power-row" id="powerRow" aria-live="polite" hidden>
+        <span class="power-icon" id="powerIcon" aria-hidden="true"></span>
+        <span class="power-name" id="powerName">POWER</span>
+        <span class="power-track" aria-label="Power-up time remaining"><span class="power-fill" id="powerFill"></span></span>
+        <span class="power-time" id="powerTime"></span>
+      </div>
+
+      <div class="board-wrap">
+        <canvas id="gameCanvas" width="600" height="600" aria-label="Snake game board" role="img"></canvas>
+
+        <section class="screen start-screen" id="startScreen" aria-label="Start game">
+          <p class="screen-kicker">INSERT COIN? NAH.</p>
+          <h2>READY PLAYER ONE</h2>
+          <p class="blink-text">PRESS START</p>
+          <button class="action-button" id="startButton" type="button">START GAME <span aria-hidden="true">▶</span></button>
+          <p class="screen-hint">ARROWS / WASD <span>·</span> SWIPE TO MOVE</p>
+        </section>
+
+        <section class="screen game-over-screen" id="gameOverScreen" aria-label="Game over" hidden>
+          <p class="screen-kicker">SIGNAL LOST</p>
+          <h2>GAME OVER</h2>
+          <p class="final-score-label">FINAL SCORE <strong id="finalScore">0</strong></p>
+          <button class="action-button" id="playAgainButton" type="button">PLAY AGAIN <span aria-hidden="true">↻</span></button>
+        </section>
+
+        <section class="screen pause-screen" id="pauseScreen" aria-label="Game paused" hidden>
+          <p class="screen-kicker">TAKE A BREATHER</p>
+          <h2>PAUSED</h2>
+          <button class="action-button" id="resumeButton" type="button">RESUME <span aria-hidden="true">▶</span></button>
+        </section>
+      </div>
+      <nav class="dpad" id="dpad" aria-label="Touch controls">
+        <button type="button" data-direction="up" aria-label="Move up">▲</button>
+        <button type="button" data-direction="left" aria-label="Move left">◀</button>
+        <button type="button" data-direction="down" aria-label="Move down">▼</button>
+        <button type="button" data-direction="right" aria-label="Move right">▶</button>
+      </nav>
+      <footer class="board-footer"><span>LEVEL <strong id="level">01</strong></span><span class="footer-mark">★ &nbsp; EAT / GROW / GLOW &nbsp; ★</span></footer>
+    </section>
+    <p class="page-footer">A tiny game for a very big night <span>✳</span></p>
+  </main>
+</body>
+</html>
